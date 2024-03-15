@@ -18,3 +18,5 @@ st.markdown("<p style='text-align: justify;'>\
             a experiência de aprendizado e prática nessa área. \
 </p>", unsafe_allow_html=True)
 
+st.write('#### Recursos principais', unsafe_allow_html=True)
+
