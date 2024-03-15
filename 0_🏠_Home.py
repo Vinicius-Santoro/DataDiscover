@@ -23,3 +23,9 @@ st.write('#### Recursos principais', unsafe_allow_html=True)
 st.markdown("<p style='text-align: justify;'>\
         Clique em cada uma das ferramentas para saber mais. \
 </p>", unsafe_allow_html=True)
+
+with st.expander("Motor de Busca"):
+    st.markdown("<p style='text-align: justify;'>\
+            O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
+            Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+    </p>", unsafe_allow_html=True)
