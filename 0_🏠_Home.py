@@ -17,3 +17,4 @@ st.markdown("<p style='text-align: justify;'>\
             para estudantes e entusiastas de ciência de dados. Nosso objetivo é simplificar e aprimorar \
             a experiência de aprendizado e prática nessa área. \
 </p>", unsafe_allow_html=True)
+
