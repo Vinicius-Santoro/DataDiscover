@@ -20,3 +20,6 @@ st.markdown("<p style='text-align: justify;'>\
 
 st.write('#### Recursos principais', unsafe_allow_html=True)
 
+st.markdown("<p style='text-align: justify;'>\
+        Clique em cada uma das ferramentas para saber mais. \
+</p>", unsafe_allow_html=True)
