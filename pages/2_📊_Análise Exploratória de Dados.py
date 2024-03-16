@@ -41,6 +41,8 @@ if uploaded_file is not None:
     # Gerando profile report com o df carregado pelo usuário.
     pr = ProfileReport(df, explorative=True)
     st.header('**DataFrame Inserido**')
+
+    # Printando DataFrame na tela
     st.write(df)
     st.write('---')
     st.header('**Análise do Arquivo Inserido**')
@@ -71,6 +73,8 @@ else:
         # Gerando profile report com o df de exemplo
         pr = ProfileReport(df, explorative=True)
         st.header('**DataFrame Inserido**')
+
+        # Printando DataFrame na tela
         st.write(df)
         st.write('---')
         st.header('**Análise do Arquivo Inserido**')
