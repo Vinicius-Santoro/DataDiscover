@@ -11,44 +11,69 @@ st.set_page_config(
     layout="wide"
 )
 
+# Adiciona título da página
 st.title("Análise Exploratória de Dados")
 
-# Upload CSV data
+# Recebe o arquivo excel ou csv do usuário
 with st.sidebar.header('I. Coletando Dados'):
     uploaded_file = st.sidebar.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
-# Pandas Profiling Report
+# Gera relatório com pandas profile report
+# 1. Se o usuário carregar um arquivo, então:
 if uploaded_file is not None:
+    # Armazena em cache o report gerado
     @st.cache_data
+
+    # Analisa se o tipo de arquivo é csv ou excel para atribuir para uma variável
     def load_csv(uploaded_file):
         if '.csv' in uploaded_file.name:
             data = pd.read_csv(uploaded_file, encoding="latin-1", sep=";", low_memory=False)
         elif '.xlsx' in uploaded_file.name:
             data = pd.read_excel(uploaded_file)
+
+        # Mensagem de sucesso de carregou com sucesso
         st.success("Arquivo carregado com sucesso.")
-        return data
+        return 
+        
+    # Atribui o arquivo para a variável df
     df = load_csv(uploaded_file)
+
+    # Gerando profile report com o df carregado pelo usuário.
     pr = ProfileReport(df, explorative=True)
     st.header('**DataFrame Inserido**')
     st.write(df)
     st.write('---')
     st.header('**Análise do Arquivo Inserido**')
+
+    # Printando profile report com o df carregado pelo usuário.
     st_profile_report(pr)
+
+# 2. Se o usuário não carregar um arquivo, então vai utilizar um template:
 else:
     st.info('Esperando um arquivo excel ou csv ser inserido.')
     if st.button('Clique utilizar um exemplo'):
-        # Example data
+        # Armazena em cache o report gerado
         @st.cache_data
+
+        # Gera um dataframe de exemplo
         def load_data():
             a = pd.DataFrame(
+
+                # Cria um dataframe de 10 linhas e 5 colunas com números reais aleatórios
                 np.random.rand(100, 5),
                 columns=['a', 'b', 'c', 'd', 'e']
             )
             return a
+        
+        # Atribui o arquivo para a variável df
         df = load_data()
+
+        # Gerando profile report com o df de exemplo
         pr = ProfileReport(df, explorative=True)
         st.header('**DataFrame Inserido**')
         st.write(df)
         st.write('---')
         st.header('**Análise do Arquivo Inserido**')
+
+        # Printando profile report com o df de exemplo.
         st_profile_report(pr)
