@@ -52,10 +52,25 @@ st.markdown("<p style='text-align: justify;'>\
         do curso de ciência de dados, quarto semestre, período noturno.\
             \
 </p>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: justify;'>\
-            •   Alunos: Henrique Oliveira Neves e Vinicius Naziozeno Santoro do Rio.\
+
+st.markdown("- Alunos: Henrique Oliveira Neves e Vinicius Naziozeno Santoro do Rio.", unsafe_allow_html=True)
+st.markdown("- Orientador: Professora Rosineide Aparecida de Lira Volgarin.", unsafe_allow_html=True)
+
+st.write('#### Como o projeto foi desenvolvido', unsafe_allow_html=True)
+st.markdown("<p style='text-align: left;'>\
+            O projeto foi desenvolvido utilizando as seguintes ferramentas: \
 </p>", unsafe_allow_html=True)
 
-st.markdown("<p style='text-align: justify;'>\
-            •   Orientador: Professora Rosineide Aparecida de Lira Volgarin. \
+image = Image.open(r'./images/Ferramentas_3.png')
+
+st.image(image, use_column_width='auto')
+
+st.markdown("- Planner: gerenciar e acompanhar todas atividades do projeto.")
+st.markdown("- Figma: realizar o design da aplicação.")
+st.markdown("- Python: desenvolver o código fonte do projeto.")
+st.markdown("- Streamlit: biblioteca do python utilizada para front-end.")
+st.markdown("- Git: versionar o código fonte da aplicação.")
+st.markdown("- Github: hospedar o código fonte da aplicação.")
+st.markdown("<p style='text-align: left;'>\
+            Caso tenha curiosidade, acesse nosso relato técnico: Relato Técnico - Projeto Integrador III\
 </p>", unsafe_allow_html=True)
