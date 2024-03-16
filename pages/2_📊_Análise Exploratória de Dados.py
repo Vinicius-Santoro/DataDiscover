@@ -33,7 +33,7 @@ if uploaded_file is not None:
 
         # Mensagem de sucesso de carregou com sucesso
         st.success("Arquivo carregado com sucesso.")
-        return 
+        return data
         
     # Atribui o arquivo para a variável df
     df = load_csv(uploaded_file)
