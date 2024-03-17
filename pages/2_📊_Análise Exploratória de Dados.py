@@ -15,7 +15,7 @@ st.set_page_config(
 st.title("Análise Exploratória de Dados")
 
 # Recebe o arquivo excel ou csv do usuário
-with st.sidebar.header('I. Coletando Dados'):
+with st.sidebar.header('1. Coletando Dados'):
     uploaded_file = st.sidebar.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Gera relatório com pandas profile report
@@ -53,7 +53,7 @@ if uploaded_file is not None:
 # 2. Se o usuário não carregar um arquivo, então vai utilizar um template:
 else:
     st.info('Esperando um arquivo excel ou csv ser inserido.')
-    if st.button('Clique utilizar um exemplo'):
+    if st.button('Clique para utilizar um exemplo'):
         # Armazena em cache o report gerado
         @st.cache_data
 

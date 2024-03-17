@@ -15,6 +15,7 @@ import io
 st.set_page_config(
     page_title="Relatório de Perfomance de Modelo",
     page_icon="📃",
+    layout="wide"
 )
 
 st.title("Relatório de Perfomance de Modelo")
@@ -25,16 +26,16 @@ def build_model(df):
     X = df.iloc[:,:-1] # Using all column except for the last column as X
     Y = df.iloc[:,-1] # Selecting the last column as Y
 
-    st.markdown('**1.2. Dataset dimension**')
+    st.markdown('**1.2. Dimensão do DataFrame**')
     st.write('X')
     st.info(X.shape)
     st.write('Y')
     st.info(Y.shape)
 
-    st.markdown('**1.3. Variable details**:')
-    st.write('X variable (first 20 are shown)')
+    st.markdown('**1.3. Detalhes das Variáveis**:')
+    st.write('Variável X (mostrando as 20 primeiras)')
     st.info(list(X.columns[:20]))
-    st.write('Y variable')
+    st.write('Variável Y')
     st.info(Y.name)
 
     # Build lazy model
@@ -43,17 +44,17 @@ def build_model(df):
     models_train,predictions_train = reg.fit(X_train, X_train, Y_train, Y_train)
     models_test,predictions_test = reg.fit(X_train, X_test, Y_train, Y_test)
 
-    st.subheader('2. Table of Model Performance')
+    st.subheader('2. Tabela de Performance do Modelo')
 
-    st.write('Training set')
+    st.write('Conjunto de Treinamento')
     st.write(predictions_train)
     st.markdown(filedownload(predictions_train,'training.csv'), unsafe_allow_html=True)
 
-    st.write('Test set')
+    st.write('Conjunto de Teste')
     st.write(predictions_test)
     st.markdown(filedownload(predictions_test,'test.csv'), unsafe_allow_html=True)
 
-    st.subheader('3. Plot of Model Performance (Test set)')
+    st.subheader('3. Plotando Tabela de Performance do Modelo (Conjunto de Teste)')
 
 
     with st.markdown('**R-squared**'):
@@ -88,7 +89,7 @@ def build_model(df):
     st.pyplot(plt)
     st.markdown(imagedownload(plt,'plot-rmse-wide.pdf'), unsafe_allow_html=True)
 
-    with st.markdown('**Calculation time**'):
+    with st.markdown('**Tempo de Execução do Cálculo**'):
         # Tall
         predictions_test["Time Taken"] = [0 if i < 0 else i for i in predictions_test["Time Taken"] ]
         plt.figure(figsize=(3, 9))
@@ -121,33 +122,38 @@ def imagedownload(plt, filename):
 
 #---------------------------------#
 st.write("""
-# The Machine Learning Algorithm Comparison App
-
-In this implementation, the **lazypredict** library is used for building several machine learning models at once.
-
-Developed by: [Data Professor](http://youtube.com/dataprofessor)
+Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de aprendizado de máquina de uma só vez.
 
 """)
+
+# Developed by: [Data Professor](http://youtube.com/dataprofessor)
 
 #---------------------------------#
 # Sidebar - Collects user input features into dataframe
-with st.sidebar.header('1. Upload your CSV data'):
-    uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv", "xlsx"])
-    st.sidebar.markdown("""
-[Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/delaney_solubility_with_descriptors.csv)
-""")
+with st.sidebar.header('1. Coletando Dados'):
+    uploaded_file = st.sidebar.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Sidebar - Specify parameter settings
-with st.sidebar.header('2. Set Parameters'):
-    split_size = st.sidebar.slider('Data split ratio (% for Training Set)', 10, 90, 80, 5)
-    seed_number = st.sidebar.slider('Set the random seed number', 1, 100, 42, 1)
+with st.sidebar.header('2. Configurando Parâmetros'):
+    # Função st.sidebar.slider para a variável split_size
+    # 10: valor mínimo
+    # 90: valor máximo
+    # 80: valor onde inicia quando a página é carregada
+    #  5: intervalo
+    split_size = st.sidebar.slider('Proporção de divisão de dados (% para conjunto de treinamento)', 10, 90, 80, 5)
 
+    # Função st.sidebar.slider para a variável seed_number
+    #   1: valor mínimo
+    # 100: valor máximo
+    #  42: valor onde inicia quando a página é carregada
+    #   1: intervalo
+    seed_number = st.sidebar.slider('Defina o número inicial aleatório', 1, 100, 42, 1)
 
 #---------------------------------#
 # Main panel
 
 # Displays the dataset
-st.subheader('1. Dataset')
+st.subheader('1. DataFrame')
 
 if uploaded_file is not None:
     # Analisa se o tipo de arquivo é csv ou excel para atribuir para uma variável
@@ -164,19 +170,19 @@ if uploaded_file is not None:
     # Atribui o arquivo para a variável df
     df = load_csv(uploaded_file)
 
-    st.markdown('**1.1. Glimpse of dataset**')
+    st.markdown('**1.1. Analise o DataFrame**')
     st.write(df)
     build_model(df)
 else:
-    st.info('Awaiting for CSV file to be uploaded.')
-    if st.button('Press to use Example Dataset'):
+    st.info('Esperando um arquivo excel ou csv ser inserido.')
+    if st.button('Clique para utilizar um exemplo'):
         # Diabetes dataset
         diabetes = load_diabetes()
         X = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
         Y = pd.Series(diabetes.target, name='response')
         df = pd.concat( [X,Y], axis=1 )
 
-        st.markdown('The Diabetes dataset is used as the example.')
+        st.markdown('O Dataset "diabetes" do sklearn foi utilizado como exemplo')
         st.write(df.head(5))
 
         build_model(df)
