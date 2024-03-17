@@ -14,7 +14,6 @@ st.set_page_config(
     layout="wide",
 )
 
-
 # this function for the getting inforamtion of the web page
 def get_paperinfo(paper_url, headers):
 
