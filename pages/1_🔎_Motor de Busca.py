@@ -129,7 +129,7 @@ with st.sidebar:
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
     # Como funciona?
-    nsira suas palavras-chave no campo de texto e selecione quantas páginas serão utilizadas dos resultados do Google Acadêmico.  
+    Insira suas palavras-chave no campo de texto e selecione quantas páginas serão utilizadas dos resultados do Google Acadêmico.  
     """)
 
 hide="""
