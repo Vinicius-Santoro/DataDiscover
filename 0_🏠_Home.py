@@ -6,7 +6,7 @@ st.set_page_config(
     page_title="DataDiscover",
     page_icon="🏠",
     initial_sidebar_state="expanded",
-    # layout="wide"
+    layout="wide"
 )
 
 # Texto de boas vindas.
