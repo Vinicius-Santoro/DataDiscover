@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport
 
 # Configura título e ícone da página. Sidebar inicia expandida
 st.set_page_config(
