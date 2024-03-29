@@ -72,6 +72,14 @@ O DataDiscover é um site que centraliza três ferramentas projetadas especifica
       - Tempo de cálculo.
 </details>
 
+### `Overview do Projeto`
+
+<details>
+  <summary><b>Versão 1.0</b></summary>
+  Texto.
+</details>
+
+
 ### `Como Baixar o Projeto`
 - Clone o repositório.
 ```bash
@@ -87,5 +95,30 @@ pip install -r requirements.txt
 ```bash
 python -m streamlit run 0_🏠_Home.py
 ```
+
+### `Possíveis Erros e Soluções`
+Caso você instale a aplicação e tenha algum erro na execução, documentamos como solucionar esses possíveis erros.
+
+#### Erro 1
+
+> [!CAUTION]
+> AttributeError: module 'numba' has no attribute 'generated_jit'.
+
+#### Solução
+
 > [!TIP]
-> Abra seu navegador para visualizar a aplicação funcionando.
+> 1. Acessar o arquivo env\Lib\site-packages\visions\backends\shared\nan_handling.py"
+> 2. Comentar a linha 34 que contém: `@nb.generated_jit(nopython=True)`
+
+#### Erro 2
+
+> [!CAUTION]
+> TypeError: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse''.
+
+#### Solução
+
+> [!TIP]
+> 1. Acessar o arquivo env\Lib\\site-packages\streamlit\runtime\scriptrunner\script_runner.py"
+> 2. Remover o segundo parâmetro da função OneHotEncoder:
+> 3. Como estava: `OneHotEncoder(handle_unknown="ignore", sparse=False))`
+> 4. Como ficou: `OneHotEncoder(handle_unknown="ignore")`
