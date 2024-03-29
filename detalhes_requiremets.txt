@@ -1,0 +1,62 @@
+# Requirements - Motor de Busca
+plotly          # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+requests        # OK
+pandas          # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+beautifulsoup4  # OK
+streamlit       # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+
+# Requirements - Análise Exploratória de Dados
+streamlit==0.71.0                   # OK
+pandas==1.1.3                       # OK
+numpy==1.19.2                       # OK
+pandas-profiling==2.10.0            # OK
+streamlit-pandas-profiling==0.1.1   # OK
+Jinja2==3.0.3                       # OK
+
+# Requirements - Relatório de Performance de Modelo
+
+streamlit==0.71.0       # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+pandas==1.1.3           # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+base58==2.0.1           # OK
+numpy==1.19.2           # OK - utilizaremos a versão especificada do Análise Exploratória de Dados
+pillow==8.0.1           # OK
+plotly==4.14.1          # OK
+scikit-learn==0.23.2    # OK
+lazypredict==0.2.7      # OK
+seaborn==0.11.1         # OK
+matplotlib==3.3.3       # OK
+xgboost==1.1.1          # OK
+lightgbm==2.3.1         # OK
+pytest==5.4.3           # OK
+tqdm==4.56.0            # OK
+
+# Comandos utilizados após instalação
+
+1 - Requirements ficou assim:
+
+requests
+beautifulsoup4
+streamlit  
+pandas
+numpy   
+pandas-profiling   
+streamlit-pandas-profiling==0.1.1 
+Jinja2==3.0.3   
+base58==2.0.1   
+pillow
+plotly==4.14.1  
+scikit-learn
+lazypredict==0.2.7    
+seaborn==0.11.1 
+matplotlib    
+xgboost==1.1.1  
+lightgbm==2.3.1
+pytest==5.4.3   
+tqdm==4.56.0
+
+
+2 - instalamos isso
+pip install protobuf==3.20.*
+pip install -U click==8 
+pip install --upgrade streamlit
+pip install ydata-profiling
