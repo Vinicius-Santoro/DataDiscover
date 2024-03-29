@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
+from sklearn.utils._testing import ignore_warnings
 
 # Configura título e ícone da página. Sidebar inicia expandida
 st.set_page_config(
