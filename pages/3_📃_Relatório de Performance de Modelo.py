@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import lazypredict
+# import lazypredict
 from lazypredict.Supervised import LazyClassifier
 from lazypredict.Supervised import LazyRegressor
 from sklearn.model_selection import train_test_split
