@@ -13,12 +13,12 @@ import base64
 import io
 
 st.set_page_config(
-    page_title="Relatório de Perfomance de Modelo",
+    page_title="Relatório de Performance de Modelo",
     page_icon="📃",
     layout="wide"
 )
 
-st.title("Relatório de Perfomance de Modelo")
+st.title("Relatório de Performance de Modelo")
 
 # Model building
 def build_model(df):
