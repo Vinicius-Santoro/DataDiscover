@@ -4,22 +4,28 @@
 Repositório para versionar o desenvolvimento do motor de busca, sistema de software projetado para encontrar informações armazenadas em um sistema computacional a partir de palavras-chave indicadas pelo utilizador, reduzindo o tempo necessário para encontrar informações.
 
 ### `Proposta de Projeto`
-O projeto que os alunos Vinicius Naziozeno Santoro do Rio e Henrique Oliveira Neves querem desenvolver, é o Data Discover, motor de busca para estudantes de ciência de dados.
-
-O motor de busca em si retornará artigos acadêmicos da base do Google Scholar.
-
-Abaixo, apresentamos a estrutura do nosso projeto.
+O DataDiscover é um site que centraliza três ferramentas projetadas especificamente para estudantes e entusiastas de ciência de dados. Nosso objetivo é simplificar e aprimorar a experiência de aprendizado e prática nessa área.
 
 ### `Estrutura do Projeto`
 
-Itens Obrigatórios
-
-- **Página Principal:** onde ficará a interface para o usuário realizar sua consulta.
+<details>
+  <summary><b>Motor de Busca</b></summary>
+    O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar.
+    Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.
+  
   - Após o usuário realizar a consulta, aparecerá os seguintes itens:
     - Lista dos artigos relacionados a consulta, com opção de exportar para csv.
     - Indicador da distribuição de artigos publicados por ano e citação.
     - Indicador da % de sites que publicaram.
-- **Página de Análise Exploratória de Dados (EDA):** onde o usuário terá a possibilidade de incluir um arquivo csv e retornaremos para ele:
+</details>
+
+<details>
+<summary><b>Análise Exploratória de Dados</b></summary>
+      A ferramenta de análise exploratória de dados é uma aliada valiosa para analistas e cientista de dados.
+      Com ela, você pode importar um arquivo Excel ou CSV contendo seus dados brutos e obter uma análise detalhada do seu dataframe.
+      Ela revela padrões, tendências e insights ocultos, permitindo que você compreenda melhor a estrutura dos seus dados.
+      A partir dessa análise, você pode tomar decisões informadas sobre limpeza, transformação e visualização dos dados.
+
   - Visualização geral do dataframe inserido.
   - Análises estatísticas:
     - Número de variáveis.
@@ -47,12 +53,72 @@ Itens Obrigatórios
   - Análise de valores faltantes em cada variável.
   - Análise das primeiras linhas do dataframe.
   - Análise das últimas linhas do dataframe.
-- **Página de Comparação de Algoritimos de Machine Learning:** onde o usuário terá a possibilidade de incluir um arquivo csv e retornaremos para ele:
+</details>
+
+<details>
+<summary><b>Relatório de Performance de Modelo</b></summary>
+      Imagine que você está construindo modelos de machine learning para resolver um problema específico.
+      O relatório de performance de modelo entra em cena exatamente nesse momento.
+      Basta inserir um arquivo Excel ou CSV e você descobrirá como seu dataframe se comportaria em 20 diferentes modelos de machine learning.
+      Essa análise inclui métricas de acurácia, precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário.
+
   - Análise do dataset
-    - Dimensão do dataset.
-    - Detalhe das variáveis.
+  - Dimensão do dataset.
+  - Detalhe das variáveis.
   - Modelo de performance.
     - Plotagem do modelo de performance.
       - R-Squared.
       - RMSE.
       - Tempo de cálculo.
+</details>
+
+### `Overview do Projeto`
+
+<details>
+  <summary><b>Versão 1.0</b></summary>
+  Texto.
+</details>
+
+
+### `Como Baixar o Projeto`
+- Clone o repositório.
+```bash
+git clone git@github.com:Vinicius-Santoro/DataDiscover.git
+```
+
+- Instale as bibliotecas necessárias.
+```bash
+pip install -r requirements.txt
+```
+
+- Execute a aplicação
+```bash
+python -m streamlit run 0_🏠_Home.py
+```
+
+### `Possíveis Erros e Soluções`
+Caso você instale a aplicação e tenha algum erro na execução, documentamos como solucionar esses possíveis erros.
+
+#### Erro 1
+
+> [!CAUTION]
+> AttributeError: module 'numba' has no attribute 'generated_jit'.
+
+#### Solução
+
+> [!TIP]
+> 1. Acessar o arquivo env\Lib\site-packages\visions\backends\shared\nan_handling.py"
+> 2. Comentar a linha 34 que contém: `@nb.generated_jit(nopython=True)`
+
+#### Erro 2
+
+> [!CAUTION]
+> TypeError: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse''.
+
+#### Solução
+
+> [!TIP]
+> 1. Acessar o arquivo env\Lib\\site-packages\streamlit\runtime\scriptrunner\script_runner.py"
+> 2. Remover o segundo parâmetro da função OneHotEncoder:
+> 3. Como estava: `OneHotEncoder(handle_unknown="ignore", sparse=False))`
+> 4. Como ficou: `OneHotEncoder(handle_unknown="ignore")`

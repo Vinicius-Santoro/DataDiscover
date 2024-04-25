@@ -16,8 +16,8 @@ st.set_page_config(
 st.title("Análise Exploratória de Dados")
 
 # Recebe o arquivo excel ou csv do usuário
-with st.sidebar.header('1. Coletando Dados'):
-    uploaded_file = st.sidebar.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
+st.header('1. Coletando Dados')
+uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Gera relatório com pandas profile report
 # 1. Se o usuário carregar um arquivo, então:

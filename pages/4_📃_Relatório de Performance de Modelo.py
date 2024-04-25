@@ -13,12 +13,12 @@ import base64
 import io
 
 st.set_page_config(
-    page_title="Relatório de Perfomance de Modelo",
+    page_title="Relatório de Performance de Modelo",
     page_icon="📃",
     layout="wide"
 )
 
-st.title("Relatório de Perfomance de Modelo")
+st.title("Relatório de Performance de Modelo")
 
 # Model building
 def build_model(df):
@@ -130,24 +130,31 @@ Nesta implementação, a biblioteca lazypredict é usada para construir vários 
 
 #---------------------------------#
 # Sidebar - Collects user input features into dataframe
-with st.sidebar.header('1. Coletando Dados'):
-    uploaded_file = st.sidebar.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
+st.header('1. Coletando Dados')
+uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Sidebar - Specify parameter settings
-with st.sidebar.header('2. Configurando Parâmetros'):
-    # Função st.sidebar.slider para a variável split_size
-    # 10: valor mínimo
-    # 90: valor máximo
-    # 80: valor onde inicia quando a página é carregada
-    #  5: intervalo
-    split_size = st.sidebar.slider('Proporção de divisão de dados (% para conjunto de treinamento)', 10, 90, 80, 5)
+st.header('2. Configurando Parâmetros')
+# Função st.sidebar.slider para a variável split_size
+# 10: valor mínimo
+# 90: valor máximo
+# 80: valor onde inicia quando a página é carregada
+#  5: intervalo
 
-    # Função st.sidebar.slider para a variável seed_number
-    #   1: valor mínimo
-    # 100: valor máximo
-    #  42: valor onde inicia quando a página é carregada
-    #   1: intervalo
-    seed_number = st.sidebar.slider('Defina o número inicial aleatório', 1, 100, 42, 1)
+# input
+col1, col2 = st.columns([2,2])
+with col1:
+    split_size = st.slider('Proporção de divisão de dados (% para conjunto de treinamento)', 10, 90, 80, 5)
+with col2:
+    seed_number = st.slider('Defina o número inicial aleatório', 1, 100, 42, 1)
+
+
+
+# Função st.sidebar.slider para a variável seed_number
+#   1: valor mínimo
+# 100: valor máximo
+#  42: valor onde inicia quando a página é carregada
+#   1: intervalo
 
 #---------------------------------#
 # Main panel
