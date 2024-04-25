@@ -120,17 +120,17 @@ html_temp = """
                     </div>
                     """
 
-with st.sidebar:
-    st.markdown("""
-    # Sobre
-    Uma ferramenta para extrair informações relevantes de artigos de pesquisa do Google Scholar com base nas informações do usuário.
-    """)
+# with st.sidebar:
+#     st.markdown("""
+#     # Sobre
+#     Uma ferramenta para extrair informações relevantes de artigos de pesquisa do Google Scholar com base nas informações do usuário.
+#     """)
     
-    st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
-    st.markdown("""
-    # Como funciona?
-    Insira suas palavras-chave no campo de texto e selecione quantas páginas serão utilizadas dos resultados do Google Acadêmico.  
-    """)
+#     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
+#     st.markdown("""
+#     # Como funciona?
+#     Insira suas palavras-chave no campo de texto e selecione quantas páginas serão utilizadas dos resultados do Google Acadêmico.  
+#     """)
 
 hide="""
 <style>
@@ -146,12 +146,20 @@ footer{
 """
 st.markdown(hide, unsafe_allow_html=True)
 
-# title
-st.markdown("""
-## Motor de Busca
-Extração de informações relevantes de artigos de pesquisa do Google Scholar.
-""")
+# # title
+# st.markdown("""
+# ## Motor de Busca
+# Extração de informações relevantes de artigos de pesquisa do Google Scholar.
+# """)
 
+# Texto de boas vindas.
+st.write('# Motor de Busca <span style="color: #ff6200"></span>', unsafe_allow_html=True)
+
+# Texto de descrição do projeto.
+st.markdown("<p style='text-align: justify;'>\
+            O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
+            Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+</p>", unsafe_allow_html=True)
 
 
 # scraping function
@@ -190,7 +198,7 @@ col1, col2 = st.columns([3,1])
 with col1:
   text_input = st.text_input("Pesquisar no Google Scholar", placeholder="O que você está procurando?", disabled=False)
 with col2:
-  total_to_scrap = st.slider("Quantas páginas para realizar o scrap?", min_value=0, max_value=4, step=1, value=1)
+  total_to_scrap = st.slider("Quantas páginas para realizar o scrap?", min_value=1, max_value=4, step=1, value=1)
 
 st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
 # create scholar url
