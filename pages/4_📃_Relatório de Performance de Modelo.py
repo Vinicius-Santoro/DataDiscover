@@ -140,14 +140,21 @@ st.header('2. Configurando Parâmetros')
 # 90: valor máximo
 # 80: valor onde inicia quando a página é carregada
 #  5: intervalo
-split_size = st.slider('Proporção de divisão de dados (% para conjunto de treinamento)', 10, 90, 80, 5)
+
+# input
+col1, col2 = st.columns([2,2])
+with col1:
+    split_size = st.slider('Proporção de divisão de dados (% para conjunto de treinamento)', 10, 90, 80, 5)
+with col2:
+    seed_number = st.slider('Defina o número inicial aleatório', 1, 100, 42, 1)
+
+
 
 # Função st.sidebar.slider para a variável seed_number
 #   1: valor mínimo
 # 100: valor máximo
 #  42: valor onde inicia quando a página é carregada
 #   1: intervalo
-seed_number = st.slider('Defina o número inicial aleatório', 1, 100, 42, 1)
 
 #---------------------------------#
 # Main panel
