@@ -78,7 +78,7 @@ message.write("\
 
 st.write('#### Quer saber mais? Baixe nossa documentação completa do projeto 🚀', unsafe_allow_html=True)
 
-with open("images\Ferramentas.png", "rb") as file:
+with open("./images/Ferramentas.png", "rb") as file:
     btn = st.download_button(
             label="Download da documentação",
             data=file,
