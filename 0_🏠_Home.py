@@ -86,6 +86,7 @@ with open("./images/Ferramentas.png", "rb") as file:
             mime="image/png"
           )
 
+# teste ok no macbook pro
 # # Texto de informações sobre o projeto.
 # st.write('#### Informações sobre o projeto', unsafe_allow_html=True)
 # st.markdown("<p style='text-align: justify;'>\
