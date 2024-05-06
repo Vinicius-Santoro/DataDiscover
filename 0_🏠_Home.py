@@ -54,20 +54,20 @@ with st.expander("Relatório de Performance de Modelo"):
 
 st.write('#### Possíveis perguntas', unsafe_allow_html=True)
 
-message = st.chat_message("assistant")
+message = st.chat_message("user")
 message.write("Por que esse projeto foi desenvolvido?")
 
-message = st.chat_message("user")
+message = st.chat_message("assistant")
 message.write("\
         Esse projeto foi desenvolvido como requisito para obtenção de nota para a disciplina \
         Projeto Integrador III, da Faculdade de Tecnologia de São Paulo (Fatec),\
         do curso de ciência de dados, quarto semestre, período noturno.\
               ")
 
-message = st.chat_message("assistant")
+message = st.chat_message("user")
 message.write("Como o projeto foi desenvolvido?")
 
-message = st.chat_message("user")
+message = st.chat_message("assistant")
 message.write("\
         Esse projeto foi desenvolvido utilizando algumas ferramentas, sendo ela: Planner: gerenciar e acompanhar todas atividades do projeto.\
         Python: desenvolver o código fonte do projeto. \
