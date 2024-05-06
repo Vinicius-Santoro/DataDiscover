@@ -52,7 +52,7 @@ with st.expander("Relatório de Performance de Modelo"):
     </p>", unsafe_allow_html=True)
 
 
-st.write('#### Perguntas frequentes', unsafe_allow_html=True)
+st.write('#### Possíveis perguntas', unsafe_allow_html=True)
 
 message = st.chat_message("assistant")
 message.write("Por que esse projeto foi desenvolvido?")
@@ -85,38 +85,3 @@ with open("./images/Ferramentas.png", "rb") as file:
             file_name="flower.png",
             mime="image/png"
           )
-
-# teste ok no macbook pro
-# # Texto de informações sobre o projeto.
-# st.write('#### Informações sobre o projeto', unsafe_allow_html=True)
-# st.markdown("<p style='text-align: justify;'>\
-#         Esse projeto foi desenvolvido como requisito para obtenção de nota para a disciplina \
-#         Projeto Integrador III, da Faculdade de Tecnologia de São Paulo (Fatec),\
-#         do curso de ciência de dados, quarto semestre, período noturno.\
-#             \
-# </p>", unsafe_allow_html=True)
-
-# # Descrição dos alunos e orientador.
-# st.markdown("- Alunos: Henrique Oliveira Neves e Vinicius Naziozeno Santoro do Rio.", unsafe_allow_html=True)
-# st.markdown("- Orientador: Professora Rosineide Aparecida de Lira Volgarin.", unsafe_allow_html=True)
-
-# # Descrição de como o projeto foi desenvolvido.
-# st.write('#### Como o projeto foi desenvolvido', unsafe_allow_html=True)
-# st.markdown("<p style='text-align: left;'>\
-#             O projeto foi desenvolvido utilizando as seguintes ferramentas: \
-# </p>", unsafe_allow_html=True)
-
-# # Importa imagem das ferramentas utilizadas.
-# image = Image.open(r'./images/Ferramentas_3.png')
-# st.image(image, use_column_width='auto')
-
-# # Descreve cada uma das ferramentas.
-# st.markdown("- Planner: gerenciar e acompanhar todas atividades do projeto.")
-# st.markdown("- Figma: realizar o design da aplicação.")
-# st.markdown("- Python: desenvolver o código fonte do projeto.")
-# st.markdown("- Streamlit: biblioteca do python utilizada para front-end.")
-# st.markdown("- Git: versionar o código fonte da aplicação.")
-# st.markdown("- Github: hospedar o código fonte da aplicação.")
-# st.markdown("<p style='text-align: left;'>\
-#             Caso tenha curiosidade, acesse nosso relato técnico: Relato Técnico - Projeto Integrador III\
-# </p>", unsafe_allow_html=True)
