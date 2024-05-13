@@ -16,8 +16,8 @@ st.write('# Extração de Dados <span style="color: #ff6200"></span>', unsafe_al
 
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
-            O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
-            Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+            A extração de dados permite que você extraia base de dados diretamente do Kaggle. \
+            Dessa forma, você terá dataframes para testar nas outras ferramentas do DataDiscover.\
 </p>", unsafe_allow_html=True)
 
 # Entrada de texto para o usuário inserir o termo de busca

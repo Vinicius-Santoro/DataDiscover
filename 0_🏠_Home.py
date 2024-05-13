@@ -14,7 +14,7 @@ st.write('# Bem vindo ao <span style="color: #ff6200">DataDiscover</span>', unsa
 
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
-            O DataDiscover é um site que centraliza três ferramentas projetadas especificamente \
+            O DataDiscover é um site que centraliza quatro ferramentas projetadas especificamente \
             para estudantes e entusiastas de ciência de dados. Nosso objetivo é simplificar e aprimorar \
             a experiência de aprendizado e prática nessa área. \
 </p>", unsafe_allow_html=True)
@@ -26,14 +26,21 @@ st.markdown("<p style='text-align: justify;'>\
 </p>", unsafe_allow_html=True)
 
 # Texto de explicação do motor de busca, com expander.
-with st.expander("Motor de Busca"):
+with st.expander("🔎 Motor de Busca"):
     st.markdown("<p style='text-align: justify;'>\
             O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
             Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
     </p>", unsafe_allow_html=True)
+    
+# Texto de explicação de extração de dados, com expander.
+with st.expander("🎲 Extração de Dados"):
+    st.markdown("<p style='text-align: justify;'>\
+            A extração de dados permite que você extraia base de dados diretamente do Kaggle. \
+            Dessa forma, você terá dataframes para testar nas outras ferramentas do DataDiscover.\
+    </p>", unsafe_allow_html=True)
 
 # Texto de explicação da análise exploratória de dados, com expander.
-with st.expander("Análise Exploratória de Dados"):
+with st.expander("📊 Análise Exploratória de Dados"):
     st.markdown("<p style='text-align: justify;'>\
             A ferramenta de análise exploratória de dados é uma aliada valiosa para analistas e cientista de dados.  \
             Com ela, você pode importar um arquivo Excel ou CSV contendo seus dados brutos e obter uma análise detalhada do seu dataframe.\
@@ -42,9 +49,9 @@ with st.expander("Análise Exploratória de Dados"):
     </p>", unsafe_allow_html=True)
 
 # Texto de explicação do relatório de performance do modelo, com expander.
-with st.expander("Relatório de Performance de Modelo"):
+with st.expander("📃 Relatório de Performance de Modelo"):
     st.markdown("<p style='text-align: justify;'>\
-            Imagine que você está construindo modelos de machine learning para resolver um problema específico. \
+            Imagine que você está construindo modelos de regressão para resolver um problema específico. \
             O relatório de performance de modelo entra em cena exatamente nesse momento. \
             Basta inserir um arquivo Excel ou CSV e  \
             você descobrirá como seu dataframe se comportaria em 20 diferentes modelos de machine learning. \
@@ -54,20 +61,20 @@ with st.expander("Relatório de Performance de Modelo"):
 
 st.write('#### Possíveis perguntas', unsafe_allow_html=True)
 
-message = st.chat_message("assistant")
+message = st.chat_message("user")
 message.write("Por que esse projeto foi desenvolvido?")
 
-message = st.chat_message("user")
+message = st.chat_message("assistant")
 message.write("\
         Esse projeto foi desenvolvido como requisito para obtenção de nota para a disciplina \
         Projeto Integrador III, da Faculdade de Tecnologia de São Paulo (Fatec),\
         do curso de ciência de dados, quarto semestre, período noturno.\
               ")
 
-message = st.chat_message("assistant")
+message = st.chat_message("user")
 message.write("Como o projeto foi desenvolvido?")
 
-message = st.chat_message("user")
+message = st.chat_message("assistant")
 message.write("\
         Esse projeto foi desenvolvido utilizando algumas ferramentas, sendo ela: Planner: gerenciar e acompanhar todas atividades do projeto.\
         Python: desenvolver o código fonte do projeto. \
