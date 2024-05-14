@@ -244,7 +244,7 @@ if text_input:
           csv = convert_df(final)
           file_name_value = "_".join(text_input.split())+'.csv'
         st.download_button(
-            label="Download data as CSV",
+            label="Baixar os dados como csv.",
             data=csv,
             file_name=file_name_value,
             mime='text/csv',
@@ -254,8 +254,8 @@ if text_input:
         col1, col2 = st.columns([2,1])
 
         with col1:
-          with st.expander("Distribution of papers by year and citation", expanded=True):
-            size_button = st.checkbox('Set Citation as bubble size', value=True)
+          with st.expander("Distribuição dos artigos por ano e citação", expanded=True):
+            size_button = st.checkbox('Definir citação como tamanho de bolha', value=True)
             size_value = None
             if size_button:
               size_value = 'Citações'
@@ -283,5 +283,5 @@ if text_input:
                 values="percentage", 
                 names="sites", 
                 )
-          with st.expander("Percentage of publication sites", expanded=True):
+          with st.expander("Sites de publicação (%)", expanded=True):
             st.plotly_chart(fig2, theme="streamlit", use_container_width=True)

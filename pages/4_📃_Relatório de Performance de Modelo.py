@@ -26,13 +26,13 @@ def build_model(df):
     X = df.iloc[:,:-1] # Using all column except for the last column as X
     Y = df.iloc[:,-1] # Selecting the last column as Y
 
-    st.markdown('**1.2. Dimensão do DataFrame**')
+    st.markdown('**3.2. Dimensão do DataFrame**')
     st.write('X')
     st.info(X.shape)
     st.write('Y')
     st.info(Y.shape)
 
-    st.markdown('**1.3. Detalhes das Variáveis**:')
+    st.markdown('**3.3. Detalhes das Variáveis**:')
     st.write('Variável X (mostrando as 20 primeiras)')
     st.info(list(X.columns[:20]))
     st.write('Variável Y')
@@ -44,7 +44,7 @@ def build_model(df):
     models_train,predictions_train = reg.fit(X_train, X_train, Y_train, Y_train)
     models_test,predictions_test = reg.fit(X_train, X_test, Y_train, Y_test)
 
-    st.subheader('2. Tabela de Performance do Modelo')
+    st.subheader('4. Tabela de Performance do Modelo')
 
     st.write('Conjunto de Treinamento')
     st.write(predictions_train)
@@ -54,7 +54,7 @@ def build_model(df):
     st.write(predictions_test)
     st.markdown(filedownload(predictions_test,'test.csv'), unsafe_allow_html=True)
 
-    st.subheader('3. Plotando Tabela de Performance do Modelo (Conjunto de Teste)')
+    st.subheader('5. Plotando Tabela de Performance do Modelo (Conjunto de Teste)')
 
 
     with st.markdown('**R-squared**'):
@@ -123,18 +123,38 @@ def imagedownload(plt, filename):
 #---------------------------------#
 st.write("""
 Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de aprendizado de máquina de uma só vez.
-
+         
 """)
-
-# Developed by: [Data Professor](http://youtube.com/dataprofessor)
+# Texto de explicação do relatório de performance do modelo, com expander.
+with st.expander("**Objetivo**"):
+    st.markdown("<p style='text-align: justify;'>\
+            Imagine que você está construindo modelos de regressão para resolver um problema específico. \
+            O relatório de performance de modelo entra em cena exatamente nesse momento. \
+            Basta inserir um arquivo Excel ou CSV e  \
+            você descobrirá como seu dataframe se comportaria em 20 diferentes modelos de machine learning. \
+            Essa análise inclui métricas de acurácia, precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário.\
+    </p>", unsafe_allow_html=True)
+    st.markdown("**Explicação das métricas**")
+    st.markdown("**R-SQUARED**")
+    st.latex(r'''1 - \frac{{\sum_{i=1}^{n}(Atual_i - Forecast_i)^2}}{{\sum_{i=1}^{n}(Atual_i - \bar{Atual})^2}}''')
+    st.markdown("""
+                - Como é calculado: o R-squared é calculado como a proporção da variância total na variável dependente que é explicada pela regressão.
+                - Como interpretar: quanto mais próximo de 1, melhor o modelo explica a variabilidade dos dados. Um valor próximo de 0 indica que o modelo não explica a variabilidade dos dados.
+                """)
+    st.markdown("**RMSE**")
+    st.latex(r'''\sqrt {\frac{1}{n} \sum_{i=1}^{n}(Forecast_i-Atual_i)^2}''')
+    st.markdown("""
+                - Como é calculado: o RMSE é obtido pela raiz quadrada da média dos quadrados dos erros. O erro bruto é a diferença entre o valor previsto pelo modelo e o valor real.
+                - Como interpretar: pode ser entendido como o desvio médio das previsões em relação ao valor alvo.
+                """)
 
 #---------------------------------#
 # Sidebar - Collects user input features into dataframe
-st.header('1. Coletando Dados')
+st.subheader('1. Coleta de Dados')
 uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Sidebar - Specify parameter settings
-st.header('2. Configurando Parâmetros')
+st.subheader('2. Configuração de Parâmetros')
 # Função st.sidebar.slider para a variável split_size
 # 10: valor mínimo
 # 90: valor máximo
@@ -160,7 +180,7 @@ with col2:
 # Main panel
 
 # Displays the dataset
-st.subheader('1. DataFrame')
+st.subheader('3. Análise do Dataframe')
 
 if uploaded_file is not None:
     # Analisa se o tipo de arquivo é csv ou excel para atribuir para uma variável
@@ -177,7 +197,7 @@ if uploaded_file is not None:
     # Atribui o arquivo para a variável df
     df = load_csv(uploaded_file)
 
-    st.markdown('**1.1. Analise o DataFrame**')
+    st.markdown('**3.1. Analise o DataFrame**')
     st.write(df)
     build_model(df)
 else:

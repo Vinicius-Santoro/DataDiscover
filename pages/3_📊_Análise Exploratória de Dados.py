@@ -16,8 +16,14 @@ st.set_page_config(
 st.title("Análise Exploratória de Dados")
 
 # Recebe o arquivo excel ou csv do usuário
-st.header('1. Coletando Dados')
+st.header('1. Coleta de Dados')
 uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
+
+# Verifica se o arquivo carregado é um CSV
+if uploaded_file is not None and uploaded_file.type == "text/csv":
+    # Adiciona widgets para selecionar encoding e separador
+    user_encoding = st.selectbox("Selecione o encoding:", ["utf-8", "latin1", "ISO-8859-1"])
+    user_separator = st.text_input("Digite o separador (padrão é ';'):", ';')
 
 # Gera relatório com pandas profile report
 # 1. Se o usuário carregar um arquivo, então:
@@ -26,18 +32,21 @@ if uploaded_file is not None:
     @st.cache_data
 
     # Analisa se o tipo de arquivo é csv ou excel para atribuir para uma variável
-    def load_csv(uploaded_file):
+    def load_csv(uploaded_file,  user_encoding,  user_separator):
         if '.csv' in uploaded_file.name:
-            data = pd.read_csv(uploaded_file, encoding="latin-1", sep=";", low_memory=False)
+            data = pd.read_csv(uploaded_file, encoding=user_encoding, sep=user_separator, low_memory=False)
         elif '.xlsx' in uploaded_file.name:
             data = pd.read_excel(uploaded_file)
 
         # Mensagem de sucesso de carregou com sucesso
         st.success("Arquivo carregado com sucesso.")
         return data
-        
+
+    if uploaded_file.type == "text/csv":
     # Atribui o arquivo para a variável df
-    df = load_csv(uploaded_file)
+        df = load_csv(uploaded_file, user_encoding, user_separator)
+    else:
+        df = pd.read_excel(uploaded_file)
 
     # Gerando profile report com o df carregado pelo usuário.
     pr = ProfileReport(df, explorative=True)

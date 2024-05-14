@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 # from streamlit.server.server import Server
 from kaggle.api.kaggle_api_extended import KaggleApi
@@ -36,5 +37,9 @@ else:
         st.write(f'Você selecionou o conjunto de dados: {selected_dataset}')
         dataset_info = api.dataset_list_files(selected_dataset)
         if st.button('Baixar conjunto de dados'):
-            api.dataset_download_files(selected_dataset, unzip=True)
-            st.write('Conjunto de dados baixado com sucesso!')
+            # Obtém o caminho absoluto para a pasta de downloads
+            download_path = os.path.join(os.path.expanduser("~"), "Downloads")
+            # Define o caminho de destino para o download (apenas o arquivo)
+            destination_path = os.path.join(download_path, selected_dataset.split('/')[-1])
+            api.dataset_download_files(selected_dataset, path=destination_path, unzip=True)
+            st.success('Conjunto de dados baixado com sucesso!')
