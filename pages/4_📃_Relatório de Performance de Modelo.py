@@ -26,13 +26,13 @@ def build_model(df):
     X = df.iloc[:,:-1] # Using all column except for the last column as X
     Y = df.iloc[:,-1] # Selecting the last column as Y
 
-    st.markdown('**3.2. Dimensão do DataFrame**')
+    st.markdown('**Dimensão do DataFrame**')
     st.write('X')
     st.info(X.shape)
     st.write('Y')
     st.info(Y.shape)
 
-    st.markdown('**3.3. Detalhes das Variáveis**:')
+    st.markdown('**Detalhes das Variáveis**:')
     st.write('Variável X (mostrando as 20 primeiras)')
     st.info(list(X.columns[:20]))
     st.write('Variável Y')
@@ -48,68 +48,68 @@ def build_model(df):
 
     st.write('Conjunto de Treinamento')
     st.write(predictions_train)
-    st.markdown(filedownload(predictions_train,'training.csv'), unsafe_allow_html=True)
+    st.markdown(filedownload(predictions_train,'treinamento.csv'), unsafe_allow_html=True)
 
     st.write('Conjunto de Teste')
     st.write(predictions_test)
-    st.markdown(filedownload(predictions_test,'test.csv'), unsafe_allow_html=True)
+    st.markdown(filedownload(predictions_test,'teste.csv'), unsafe_allow_html=True)
 
     st.subheader('5. Plotando Tabela de Performance do Modelo (Conjunto de Teste)')
 
 
     with st.markdown('**R-squared**'):
-        # Tall
+        # Vertical
         predictions_test["R-Squared"] = [0 if i < 0 else i for i in predictions_test["R-Squared"] ]
         plt.figure(figsize=(3, 9))
         sns.set_theme(style="whitegrid")
         ax1 = sns.barplot(y=predictions_test.index, x="R-Squared", data=predictions_test)
         ax1.set(xlim=(0, 1))
-    st.markdown(imagedownload(plt,'plot-r2-tall.pdf'), unsafe_allow_html=True)
-        # Wide
+        # Horizontal
     plt.figure(figsize=(9, 3))
     sns.set_theme(style="whitegrid")
     ax1 = sns.barplot(x=predictions_test.index, y="R-Squared", data=predictions_test)
     ax1.set(ylim=(0, 1))
     plt.xticks(rotation=90)
     st.pyplot(plt)
-    st.markdown(imagedownload(plt,'plot-r2-wide.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'grafico-r-squared-vertical.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'grafico-r-squared-horizontal.pdf'), unsafe_allow_html=True)
 
     with st.markdown('**RMSE (capped at 50)**'):
-        # Tall
+        # Vertical
         predictions_test["RMSE"] = [50 if i > 50 else i for i in predictions_test["RMSE"] ]
         plt.figure(figsize=(3, 9))
         sns.set_theme(style="whitegrid")
         ax2 = sns.barplot(y=predictions_test.index, x="RMSE", data=predictions_test)
-    st.markdown(imagedownload(plt,'plot-rmse-tall.pdf'), unsafe_allow_html=True)
-        # Wide
+        # Horizontal
     plt.figure(figsize=(9, 3))
     sns.set_theme(style="whitegrid")
     ax2 = sns.barplot(x=predictions_test.index, y="RMSE", data=predictions_test)
     plt.xticks(rotation=90)
     st.pyplot(plt)
-    st.markdown(imagedownload(plt,'plot-rmse-wide.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'grafico-rmse-vertical.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'grafico-rmse-horizontal.pdf'), unsafe_allow_html=True)
 
     with st.markdown('**Tempo de Execução do Cálculo**'):
-        # Tall
+        # Vertical
         predictions_test["Time Taken"] = [0 if i < 0 else i for i in predictions_test["Time Taken"] ]
         plt.figure(figsize=(3, 9))
         sns.set_theme(style="whitegrid")
         ax3 = sns.barplot(y=predictions_test.index, x="Time Taken", data=predictions_test)
-    st.markdown(imagedownload(plt,'plot-calculation-time-tall.pdf'), unsafe_allow_html=True)
-        # Wide
+        # Horizontal
     plt.figure(figsize=(9, 3))
     sns.set_theme(style="whitegrid")
     ax3 = sns.barplot(x=predictions_test.index, y="Time Taken", data=predictions_test)
     plt.xticks(rotation=90)
     st.pyplot(plt)
-    st.markdown(imagedownload(plt,'plot-calculation-time-wide.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'tempo-execucao-vertival.pdf'), unsafe_allow_html=True)
+    st.markdown(imagedownload(plt,'tempo-execucao-horizontal.pdf'), unsafe_allow_html=True)
 
 # Download CSV data
 # https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
 def filedownload(df, filename):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download={filename}>Download {filename} File</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download={filename}>Download do arquivo de {filename}</a>'
     return href
 
 def imagedownload(plt, filename):
@@ -117,7 +117,7 @@ def imagedownload(plt, filename):
     plt.savefig(s, format='pdf', bbox_inches='tight')
     plt.close()
     b64 = base64.b64encode(s.getvalue()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:image/png;base64,{b64}" download={filename}>Download {filename} File</a>'
+    href = f'<a href="data:image/png;base64,{b64}" download={filename}>Download do arquivo {filename}</a>'
     return href
 
 #---------------------------------#
@@ -133,9 +133,7 @@ with st.expander("**Detalhes e explicação das métricas**"):
     st.markdown("<p style='text-align: justify;'>\
         Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
         deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
-                \
         Utilize um arquivo onde a quantidade de linhas é superior a 10 e também superior a  quantidade de colunas.\
-        \
     </p>", unsafe_allow_html=True)
     st.markdown("**Explicação das métricas**")
     st.markdown("**R-SQUARED**")

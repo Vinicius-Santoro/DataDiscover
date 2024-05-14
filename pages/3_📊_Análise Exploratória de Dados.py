@@ -16,7 +16,7 @@ st.set_page_config(
 st.title("Análise Exploratória de Dados")
 
 # Recebe o arquivo excel ou csv do usuário
-st.header('1. Coleta de Dados')
+st.subheader('1. Coleta de Dados')
 uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
 
 # Verifica se o arquivo carregado é um CSV
@@ -50,7 +50,7 @@ if uploaded_file is not None:
 
     # Gerando profile report com o df carregado pelo usuário.
     pr = ProfileReport(df, explorative=True)
-    st.header('**DataFrame Inserido**')
+    st.subheader('2. Visualização do Dataframe')
 
     # Printando DataFrame na tela
     st.write(df)
@@ -82,12 +82,12 @@ else:
 
         # Gerando profile report com o df de exemplo
         pr = ProfileReport(df, explorative=True)
-        st.header('**DataFrame Inserido**')
+        st.subheader('2. Visualização do Dataframe')
 
         # Printando DataFrame na tela
         st.write(df)
         st.write('---')
-        st.header('**Análise do Arquivo Inserido**')
+        st.subheader('3. Análise Exploratória dos Dados')
 
         # Printando profile report com o df de exemplo.
         st_profile_report(pr)
