@@ -122,17 +122,20 @@ def imagedownload(plt, filename):
 
 #---------------------------------#
 st.write("""
-Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de aprendizado de máquina de uma só vez.
-         
+Imagine que você está construindo modelos de regressão para resolver um problema específico. \
+         O relatório de performance de modelo entra em cena exatamente nesse momento. \
+         Basta inserir um arquivo Excel ou CSV e você descobrirá como seu dataframe se comportaria em \
+         20 diferentes modelos de machine learning, através da biblioteca lazypredict. Essa análise inclui métricas de acurácia, \
+         precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário. \
 """)
 # Texto de explicação do relatório de performance do modelo, com expander.
-with st.expander("**Objetivo**"):
+with st.expander("**Detalhes e explicação das métricas**"):
     st.markdown("<p style='text-align: justify;'>\
-            Imagine que você está construindo modelos de regressão para resolver um problema específico. \
-            O relatório de performance de modelo entra em cena exatamente nesse momento. \
-            Basta inserir um arquivo Excel ou CSV e  \
-            você descobrirá como seu dataframe se comportaria em 20 diferentes modelos de machine learning. \
-            Essa análise inclui métricas de acurácia, precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário.\
+        Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
+        deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
+                \
+        Utilize um arquivo onde a quantidade de linhas é superior a 10 e também superior a  quantidade de colunas.\
+        \
     </p>", unsafe_allow_html=True)
     st.markdown("**Explicação das métricas**")
     st.markdown("**R-SQUARED**")
