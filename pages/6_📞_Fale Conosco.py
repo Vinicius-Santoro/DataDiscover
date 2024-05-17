@@ -29,20 +29,19 @@ st.write("""
         <img src="{}" alt="Your Name" width="200" height="200" style="border-radius: 50%; object-fit: cover; margin-top: 40px; margin-bottom: 40px;">
         <h4><i>{}</i></h4>
         <p style="text-align: left; word-wrap: break-word;">
-            🧑‍💻 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx.
-            📝 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
-            🎯 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
-            🏠 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
+            Analista de dados no Itaú Unibanco, onde utiliza Python Pandas, AWS Athena, AWS QuickSight e Tableau para análises e visualizações de dados.
+            Atualmente, cursa o quarto semestre de Ciência de Dados na FATEC. Vinicius tem o objetivo de ingressar em um programa de mestrado em
+            Matemática Computacional ou Ciência da Computação, buscando aprofundar suas habilidades e contribuir para o avanço da área de dados.
         </p>
     </div>
     <div style="flex-grow: 1; margin-left: 20px; text-align: center; width: 50%;">
         <img src="{}" alt="Your Name" width="200" height="200" style="border-radius: 50%; object-fit: cover; margin-top: 40px; margin-bottom: 40px;">
         <h4><i>{}</i></h4>
         <p style="text-align: left; word-wrap: break-word;">
-            🧑‍💻 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
-            📝 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
-            🎯 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
-            🏠 Analista de Dados, trabalhando com Python, Athena, QuickSight, Tableu e Alteryx. 
+            Engenheiro de dados no Itaú Unibanco, com proficiência em AWS Glue, Step Functions, Athena, PySpark e Terraform.
+            Enquanto avança em sua carreira, ele também está no quarto semestre do curso de Ciência de Dados na FATEC, onde expande sua compreensão das
+            técnicas analíticas modernas. Busca ingressar em um mestrado em Estatística, visando aprofundar sua expertise em métodos
+            quantitativos e análise de dados.
         </p>
     </div>
 </div>
