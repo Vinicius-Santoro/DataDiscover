@@ -125,8 +125,8 @@ st.write("""
 Imagine que você está construindo modelos de regressão para resolver um problema específico. \
          O relatório de performance de modelo entra em cena exatamente nesse momento. \
          Basta inserir um arquivo xlsx ou CSV e você descobrirá como seu dataframe se comportaria em \
-         20 diferentes modelos de machine learning, através da biblioteca lazypredict. Essa análise inclui métricas de acurácia, \
-         precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário. \
+         mais de 30 diferentes modelos de machine learning. Essa análise inclui as métricas de avaliação, \
+         **R-Quadradro Ajustado**, **R-Quadradro** e **RMSE**, permitindo que você escolha o modelo mais adequado para o seu cenário. \
 """)
 # Texto de explicação do relatório de performance do modelo, com expander.
 with st.expander("**Detalhes e explicação das métricas**"):
