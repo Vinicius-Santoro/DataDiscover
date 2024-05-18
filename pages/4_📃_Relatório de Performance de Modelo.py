@@ -48,7 +48,7 @@ def build_model(df):
 
     st.write('Conjunto de Treinamento')
     # Texto de explicação do relatório de performance do modelo, com expander.
-    with st.expander("**Detalhes e explicação das métricas**"):
+    with st.expander("**Detalhes e explicação das métricas de avaliação**"):
         st.markdown("<p style='text-align: justify;'>\
             Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
             deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
