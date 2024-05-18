@@ -124,7 +124,7 @@ def imagedownload(plt, filename):
 st.write("""
 Imagine que você está construindo modelos de regressão para resolver um problema específico. \
          O relatório de performance de modelo entra em cena exatamente nesse momento. \
-         Basta inserir um arquivo Excel ou CSV e você descobrirá como seu dataframe se comportaria em \
+         Basta inserir um arquivo xlsx ou CSV e você descobrirá como seu dataframe se comportaria em \
          20 diferentes modelos de machine learning, através da biblioteca lazypredict. Essa análise inclui métricas de acurácia, \
          precisão, recall e F1-score, permitindo que você escolha o modelo mais adequado para o seu cenário. \
 """)
@@ -152,7 +152,7 @@ with st.expander("**Detalhes e explicação das métricas**"):
 #---------------------------------#
 # Sidebar - Collects user input features into dataframe
 st.subheader('1. Coleta de Dados')
-uploaded_file = st.file_uploader("Insira seu arquivo excel ou csv", type=["csv", "xlsx"])
+uploaded_file = st.file_uploader("Insira seu arquivo xlsx ou csv", type=["csv", "xlsx"])
 
 # Sidebar - Specify parameter settings
 st.subheader('2. Configuração de Parâmetros')
@@ -202,7 +202,7 @@ if uploaded_file is not None:
     st.write(df)
     build_model(df)
 else:
-    st.info('Esperando um arquivo excel ou csv ser inserido.')
+    st.info('Esperando um arquivo xlsx ou csv ser inserido.')
     if st.button('Clique para utilizar um exemplo'):
         # Diabetes dataset
         diabetes = load_diabetes()
