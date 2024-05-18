@@ -80,7 +80,7 @@ def build_model(df):
     st.write(predictions_test)
     st.markdown(filedownload(predictions_test,'teste.csv'), unsafe_allow_html=True)
 
-    st.subheader('5. Plotando Tabela de Performance do Modelo (Conjunto de Teste)')
+    st.subheader('5. Gráfico de Performance do Modelo (Conjunto de Teste)')
 
 
     with st.markdown('**R-squared**'):
