@@ -29,7 +29,7 @@ st.markdown("<p style='text-align: justify;'>\
 with st.expander("🔎 Motor de Busca"):
     st.markdown("<p style='text-align: justify;'>\
             O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
-            Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+            Além disso, são apresentados dois indicadores para você ter uma visão analítica de como estão as distribuições.\
     </p>", unsafe_allow_html=True)
     
 # Texto de explicação de extração de dados, com expander.
@@ -76,14 +76,14 @@ message.write("Como o projeto foi desenvolvido?")
 
 message = st.chat_message("assistant")
 message.write("\
-        Esse projeto foi desenvolvido utilizando algumas ferramentas, sendo ela: Planner: gerenciar e acompanhar todas atividades do projeto.\
-        Python: desenvolver o código fonte do projeto. \
-        Streamlit: biblioteca do python utilizada para front-end.     \
-        Git: versionar o código fonte da aplicação.     \
-        Github: hospedar o código fonte da aplicação.      \
+        Esse projeto foi desenvolvido com a utilização de algumas ferramentas, sendo elas: **Planner**: gerenciar e acompanhar as atividades do projeto.\
+        **Linguagem Python**: desenvolver o código fonte do projeto. \
+        **Streamlit**: biblioteca utilizada para desenvolver a interface.     \
+        **Git**: versionar o código fonte da aplicação.     \
+        **GitHub**: hospedar o código fonte da aplicação.      \
               ")
 
-st.write('#### Quer saber mais? Baixe nossa documentação completa do projeto 🚀', unsafe_allow_html=True)
+st.write('#### Quer saber mais? \nBaixe nossa documentação completa do projeto 🚀', unsafe_allow_html=True)
 
 with open("./images/Ferramentas.png", "rb") as file:
     btn = st.download_button(
