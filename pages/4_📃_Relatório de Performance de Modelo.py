@@ -47,6 +47,32 @@ def build_model(df):
     st.subheader('4. Tabela de Performance do Modelo')
 
     st.write('Conjunto de Treinamento')
+    # Texto de explicação do relatório de performance do modelo, com expander.
+    with st.expander("**Detalhes e explicação das métricas**"):
+        st.markdown("<p style='text-align: justify;'>\
+            Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
+            deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
+            Utilize um arquivo onde a quantidade de linhas é superior a 10 e também superior a  quantidade de colunas.\
+        </p>", unsafe_allow_html=True)
+        st.markdown("**Explicação das métricas**")
+        st.markdown("**R-Quadrado Ajustado**")
+        st.latex(r'''1 - \frac{\frac{\sum_{i=1}^{n}(Atual_i - Forecast_i)^2}{n - p - 1}}{\frac{\sum_{i=1}^{n}(Atual_i - \bar{Atual})^2}{n - 1}}''')
+        st.markdown("""
+                    - Como é calculado: é calculado como a proporção da variância total na variável dependente que é explicada pela regressão, ajustado pelo número de preditores no modelo.
+                    - Como interpretar: penaliza a adição de preditores irrelevantes ao modelo. Quanto mais próximo de 1, melhor o modelo explica a variabilidade dos dados, levando em consideração o número de preditores.
+                    """)
+        st.markdown("**R-Quadrado**")
+        st.latex(r'''1 - \frac{{\sum_{i=1}^{n}(Atual_i - Forecast_i)^2}}{{\sum_{i=1}^{n}(Atual_i - \bar{Atual})^2}}''')
+        st.markdown("""
+                    - Como é calculado: o R-squared é calculado como a proporção da variância total na variável dependente que é explicada pela regressão.
+                    - Como interpretar: quanto mais próximo de 1, melhor o modelo explica a variabilidade dos dados. Um valor próximo de 0 indica que o modelo não explica a variabilidade dos dados.
+                    """)
+        st.markdown("**RMSE**")
+        st.latex(r'''\sqrt {\frac{1}{n} \sum_{i=1}^{n}(Forecast_i-Atual_i)^2}''')
+        st.markdown("""
+                    - Como é calculado: o RMSE é obtido pela raiz quadrada da média dos quadrados dos erros. O erro bruto é a diferença entre o valor previsto pelo modelo e o valor real.
+                    - Como interpretar: pode ser entendido como o desvio médio das previsões em relação ao valor alvo.
+                    """)
     st.write(predictions_train)
     st.markdown(filedownload(predictions_train,'treinamento.csv'), unsafe_allow_html=True)
 
@@ -59,15 +85,15 @@ def build_model(df):
 
     with st.markdown('**R-squared**'):
         # Vertical
-        predictions_test["R-Squared"] = [0 if i < 0 else i for i in predictions_test["R-Squared"] ]
+        predictions_test["R-Quadrado"] = [0 if i < 0 else i for i in predictions_test["R-Quadrado"] ]
         plt.figure(figsize=(3, 9))
         sns.set_theme(style="whitegrid")
-        ax1 = sns.barplot(y=predictions_test.index, x="R-Squared", data=predictions_test)
+        ax1 = sns.barplot(y=predictions_test.index, x="R-Quadrado", data=predictions_test)
         ax1.set(xlim=(0, 1))
         # Horizontal
     plt.figure(figsize=(9, 3))
     sns.set_theme(style="whitegrid")
-    ax1 = sns.barplot(x=predictions_test.index, y="R-Squared", data=predictions_test)
+    ax1 = sns.barplot(x=predictions_test.index, y="R-Quadrado", data=predictions_test)
     ax1.set(ylim=(0, 1))
     plt.xticks(rotation=90)
     st.pyplot(plt)
@@ -91,14 +117,14 @@ def build_model(df):
 
     with st.markdown('**Tempo de Execução do Cálculo**'):
         # Vertical
-        predictions_test["Time Taken"] = [0 if i < 0 else i for i in predictions_test["Time Taken"] ]
+        predictions_test["Tempo levado"] = [0 if i < 0 else i for i in predictions_test["Tempo levado"] ]
         plt.figure(figsize=(3, 9))
         sns.set_theme(style="whitegrid")
-        ax3 = sns.barplot(y=predictions_test.index, x="Time Taken", data=predictions_test)
+        ax3 = sns.barplot(y=predictions_test.index, x="Tempo levado", data=predictions_test)
         # Horizontal
     plt.figure(figsize=(9, 3))
     sns.set_theme(style="whitegrid")
-    ax3 = sns.barplot(x=predictions_test.index, y="Time Taken", data=predictions_test)
+    ax3 = sns.barplot(x=predictions_test.index, y="Tempo levado", data=predictions_test)
     plt.xticks(rotation=90)
     st.pyplot(plt)
     st.markdown(imagedownload(plt,'tempo-execucao-vertival.pdf'), unsafe_allow_html=True)
@@ -128,26 +154,26 @@ Imagine que você está construindo modelos de regressão para resolver um probl
          mais de 30 diferentes modelos de machine learning. Essa análise inclui as métricas de avaliação, \
          **R-Quadradro Ajustado**, **R-Quadradro** e **RMSE**, permitindo que você escolha o modelo mais adequado para o seu cenário. \
 """)
-# Texto de explicação do relatório de performance do modelo, com expander.
-with st.expander("**Detalhes e explicação das métricas**"):
-    st.markdown("<p style='text-align: justify;'>\
-        Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
-        deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
-        Utilize um arquivo onde a quantidade de linhas é superior a 10 e também superior a  quantidade de colunas.\
-    </p>", unsafe_allow_html=True)
-    st.markdown("**Explicação das métricas**")
-    st.markdown("**R-SQUARED**")
-    st.latex(r'''1 - \frac{{\sum_{i=1}^{n}(Atual_i - Forecast_i)^2}}{{\sum_{i=1}^{n}(Atual_i - \bar{Atual})^2}}''')
-    st.markdown("""
-                - Como é calculado: o R-squared é calculado como a proporção da variância total na variável dependente que é explicada pela regressão.
-                - Como interpretar: quanto mais próximo de 1, melhor o modelo explica a variabilidade dos dados. Um valor próximo de 0 indica que o modelo não explica a variabilidade dos dados.
-                """)
-    st.markdown("**RMSE**")
-    st.latex(r'''\sqrt {\frac{1}{n} \sum_{i=1}^{n}(Forecast_i-Atual_i)^2}''')
-    st.markdown("""
-                - Como é calculado: o RMSE é obtido pela raiz quadrada da média dos quadrados dos erros. O erro bruto é a diferença entre o valor previsto pelo modelo e o valor real.
-                - Como interpretar: pode ser entendido como o desvio médio das previsões em relação ao valor alvo.
-                """)
+# # Texto de explicação do relatório de performance do modelo, com expander.
+# with st.expander("**Detalhes e explicação das métricas**"):
+#     st.markdown("<p style='text-align: justify;'>\
+#         Nesta implementação, a biblioteca lazypredict é usada para construir vários modelos de regressão, ou seja\
+#         deve-se inserir um arquivo onde a última coluna será a variável resposta para ser prevista.\
+#         Utilize um arquivo onde a quantidade de linhas é superior a 10 e também superior a  quantidade de colunas.\
+#     </p>", unsafe_allow_html=True)
+#     st.markdown("**Explicação das métricas**")
+#     st.markdown("**R-SQUARED**")
+#     st.latex(r'''1 - \frac{{\sum_{i=1}^{n}(Atual_i - Forecast_i)^2}}{{\sum_{i=1}^{n}(Atual_i - \bar{Atual})^2}}''')
+#     st.markdown("""
+#                 - Como é calculado: o R-squared é calculado como a proporção da variância total na variável dependente que é explicada pela regressão.
+#                 - Como interpretar: quanto mais próximo de 1, melhor o modelo explica a variabilidade dos dados. Um valor próximo de 0 indica que o modelo não explica a variabilidade dos dados.
+#                 """)
+#     st.markdown("**RMSE**")
+#     st.latex(r'''\sqrt {\frac{1}{n} \sum_{i=1}^{n}(Forecast_i-Atual_i)^2}''')
+#     st.markdown("""
+#                 - Como é calculado: o RMSE é obtido pela raiz quadrada da média dos quadrados dos erros. O erro bruto é a diferença entre o valor previsto pelo modelo e o valor real.
+#                 - Como interpretar: pode ser entendido como o desvio médio das previsões em relação ao valor alvo.
+#                 """)
 
 #---------------------------------#
 # Sidebar - Collects user input features into dataframe
