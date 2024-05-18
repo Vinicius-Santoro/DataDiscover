@@ -283,5 +283,5 @@ if text_input:
                 values="percentage", 
                 names="sites", 
                 )
-          with st.expander("Sites de publicação (%)", expanded=True):
+          with st.expander("Percentual de publicações por site", expanded=True):
             st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
