@@ -36,7 +36,7 @@
 > 2. Substituir o código por isso:
 
 <details>
-<summary>Código Supervised.py</summary>
+<summary>Supervised.py</summary>
 
 ```py
 """
