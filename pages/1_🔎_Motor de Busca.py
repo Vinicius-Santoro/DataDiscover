@@ -158,7 +158,7 @@ st.write('# Motor de Busca <span style="color: #ff6200"></span>', unsafe_allow_h
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
             O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
-            Além disso, é apresentado dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+            Além disso, são apresentados dois indicadores para você ter uma visão analítica de como estão as distribuições.\
 </p>", unsafe_allow_html=True)
 
 
@@ -283,5 +283,5 @@ if text_input:
                 values="percentage", 
                 names="sites", 
                 )
-          with st.expander("Sites de publicação (%)", expanded=True):
+          with st.expander("Percentual de publicações por site", expanded=True):
             st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
