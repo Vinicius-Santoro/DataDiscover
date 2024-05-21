@@ -149,9 +149,9 @@ def imagedownload(plt, filename):
 #---------------------------------#
 st.write("""
 Imagine que você está construindo modelos de regressão para resolver um problema específico. \
-         O relatório de performance de modelo entra em cena exatamente nesse momento. \
+         O relatório de performance de modelo te auxilia nesse momento. \
          Basta inserir um arquivo xlsx ou CSV e você descobrirá como seu dataframe se comportaria em \
-         mais de 30 diferentes modelos de machine learning. Essa análise inclui as métricas de avaliação, \
+         mais de 20 diferentes modelos de machine learning. Essa análise inclui as métricas de avaliação, \
          **R-Quadradro Ajustado**, **R-Quadradro** e **RMSE**, permitindo que você escolha o modelo mais adequado para o seu cenário. \
 """)
 # # Texto de explicação do relatório de performance do modelo, com expander.

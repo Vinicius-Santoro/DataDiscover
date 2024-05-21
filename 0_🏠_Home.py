@@ -92,4 +92,3 @@ with open("./images/relato_tecnico_motor_de_busca.pdf", "rb") as file:
             file_name="relato_tecnico_motor_de_busca.pdf",
             mime="document/pdf"
         )
-# teste mac
