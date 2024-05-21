@@ -39,9 +39,9 @@ st.write("""
         <h4><i>{}</i></h4>
         <p style="text-align: left; word-wrap: break-word;">
             Engenheiro de dados no Itaú Unibanco, com proficiência em AWS Glue, Step Functions, Athena, PySpark e Terraform.
-            Enquanto avança em sua carreira, ele também está no quarto semestre do curso de Ciência de Dados na FATEC, onde expande sua compreensão das
-            técnicas analíticas modernas. Busca ingressar em um mestrado em Estatística, visando aprofundar sua expertise em métodos
-            quantitativos e análise de dados.
+            Enquanto avança em sua carreira, ele também está no quarto semestre do curso de Ciência de Dados na FATEC.
+            Busca ingressar em um mestrado em Estatística, visando aprofundar em métodos descritivos e indutivos para contribuir
+            com a área de dados.
         </p>
     </div>
 </div>
