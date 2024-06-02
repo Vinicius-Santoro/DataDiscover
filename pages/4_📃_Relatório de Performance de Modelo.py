@@ -46,7 +46,6 @@ def build_model(df):
 
     st.subheader('4. Tabela de Performance do Modelo')
 
-    st.write('Conjunto de Treinamento')
     # Texto de explicação do relatório de performance do modelo, com expander.
     with st.expander("**Detalhes e explicação das métricas de avaliação**"):
         st.markdown("<p style='text-align: justify;'>\
@@ -73,6 +72,7 @@ def build_model(df):
                     - Como é calculado: o RMSE é obtido pela raiz quadrada da média dos quadrados dos erros. O erro bruto é a diferença entre o valor previsto pelo modelo e o valor real.
                     - Como interpretar: pode ser entendido como o desvio médio das previsões em relação ao valor alvo.
                     """)
+    st.write('Conjunto de Treinamento')
     st.write(predictions_train)
     st.markdown(filedownload(predictions_train,'treinamento.csv'), unsafe_allow_html=True)
 

@@ -3,6 +3,13 @@ import streamlit as st
 # from streamlit.server.server import Server
 from kaggle.api.kaggle_api_extended import KaggleApi
 
+st.set_page_config(
+    page_title="Extração de Dados",
+    page_icon="🎲",
+    layout="wide",
+)
+
+
 # Configurar a API do Kaggle
 api = KaggleApi()
 api.authenticate()
@@ -25,7 +32,6 @@ st.markdown("<p style='text-align: justify;'>\
 search_term = st.text_input('Digite o termo de busca por conjunto de dados no Kaggle:')
 
 if search_term == "":
-    st.info('Esperando um arquivo excel ou csv ser inserido.')
     st.button('Buscar')
 else:
     # Botão de busca

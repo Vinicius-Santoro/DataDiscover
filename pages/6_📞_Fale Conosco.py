@@ -32,6 +32,8 @@ st.write("""
             Analista de dados no Itaú Unibanco, onde utiliza Python Pandas, AWS Athena, AWS QuickSight e Tableau para análises e visualizações de dados.
             Atualmente, cursa o quarto semestre de Ciência de Dados na FATEC. Vinicius tem o objetivo de ingressar em um programa de mestrado em
             Matemática Computacional ou Ciência da Computação, buscando aprofundar suas habilidades e contribuir para o avanço da área de dados.
+            <br>• Linkedin: <a href="https://www.linkedin.com/in/viniciusrio">www.linkedin.com/in/viniciusrio</a>
+            <br>• Github: <a href="https://github.com/Vinicius-Santoro">github.com/Vinicius-Santoro</a>
         </p>
     </div>
     <div style="flex-grow: 1; margin-left: 20px; text-align: center; width: 50%;">
@@ -42,6 +44,8 @@ st.write("""
             Enquanto avança em sua carreira, ele também está no quarto semestre do curso de Ciência de Dados na FATEC.
             Busca ingressar em um mestrado em Estatística, visando aprofundar em métodos descritivos e indutivos para contribuir
             com a área de dados.
+            <br>• Linkedin: <a href="https://www.linkedin.com/in/henrique-oliveira-neves-721b79203/">www.linkedin.com/in/henrique-oliveira-neves</a>
+            <br>• Github: <a href="https://github.com/Hen123que">github.com/Hen123que</a>
         </p>
     </div>
 </div>
