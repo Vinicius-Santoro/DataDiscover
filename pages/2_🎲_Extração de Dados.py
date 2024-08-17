@@ -1,7 +1,8 @@
 import os
 import streamlit as st
-# from streamlit.server.server import Server
 from kaggle.api.kaggle_api_extended import KaggleApi
+import pandas as pd
+from pymongo import MongoClient
 
 st.set_page_config(
     page_title="Extração de Dados",
@@ -9,20 +10,23 @@ st.set_page_config(
     layout="wide",
 )
 
-
 # Configurar a API do Kaggle
 api = KaggleApi()
 api.authenticate()
+
+# Conectar ao MongoDB
+client = MongoClient("mongodb://localhost:27017/")
+db = client['meu_banco_de_dados']
 
 # Função para buscar conjuntos de dados no Kaggle
 def search_datasets(query):
     datasets = api.dataset_list(search=query, file_type='csv')
     return datasets
 
-# Texto de boas vindas.
+# Texto de boas-vindas
 st.write('# Extração de Dados <span style="color: #ff6200"></span>', unsafe_allow_html=True)
 
-# Texto de descrição do projeto.
+# Texto de descrição do projeto
 st.markdown("<p style='text-align: justify;'>\
             A extração de dados permite obter bases de dados diretamente do Kaggle, \
             proporcionando dataframes prontos para testes com as demais ferramentas do DataDiscover.\
@@ -48,4 +52,14 @@ else:
             # Define o caminho de destino para o download (apenas o arquivo)
             destination_path = os.path.join(download_path, selected_dataset.split('/')[-1])
             api.dataset_download_files(selected_dataset, path=destination_path, unzip=True)
-            st.success('Conjunto de dados baixado com sucesso!')
+
+            # Após o download, ler o arquivo CSV baixado
+            csv_file_path = os.path.join(destination_path, os.listdir(destination_path)[0])
+            df = pd.read_csv(csv_file_path)
+
+            # Armazenar no MongoDB usando o nome do conjunto de dados como o nome da coleção
+            collection_name = selected_dataset.replace('/', '_')
+            collection = db[collection_name]
+            collection.insert_many(df.to_dict(orient='records'))
+
+            st.success(f'Conjunto de dados "{selected_dataset}" baixado e armazenado com sucesso no banco de dados!')

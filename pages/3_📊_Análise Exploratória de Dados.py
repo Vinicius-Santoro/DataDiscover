@@ -1,9 +1,10 @@
+import os
 import numpy as np
 import pandas as pd
 import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
-from sklearn.utils._testing import ignore_warnings
+from pymongo import MongoClient
 
 # Configura título e ícone da página. Sidebar inicia expandida
 st.set_page_config(
@@ -11,6 +12,16 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+
+# Conectar ao MongoDB
+client = MongoClient("mongodb://localhost:27017/")
+db = client['meu_banco_de_dados']
+
+# Função para carregar dados de uma coleção específica
+def carregar_dados_mongodb(colecao_nome):
+    collection = db[colecao_nome]
+    dados = list(collection.find({}, {"_id": 0}))  # Exclui o campo '_id'
+    return pd.DataFrame(dados)
 
 # Adiciona título da página
 st.title("Análise Exploratória de Dados")
@@ -43,26 +54,60 @@ if uploaded_file is not None:
         return data
 
     if uploaded_file.type == "text/csv":
-    # Atribui o arquivo para a variável df
+        # Atribui o arquivo para a variável df
         df = load_csv(uploaded_file, user_encoding, user_separator)
     else:
         df = pd.read_excel(uploaded_file)
 
-    # Gerando profile report com o df carregado pelo usuário.
-    pr = ProfileReport(df, explorative=True)
-    st.subheader('2. Visualização do Dataframe')
+    # Botão de confirmação
+    if st.button("Confirmar e Analisar"):
+        # Gerando profile report com o df carregado pelo usuário.
 
-    # Printando DataFrame na tela
-    st.write(df)
-    st.write('---')
-    st.header('**Análise do Arquivo Inserido**')
+        st.info('Esperando um arquivo xlsx ou csv ser inserido.')
+        pr = ProfileReport(df, explorative=True)
+        st.subheader('2. Visualização do Dataframe')
 
-    # Printando profile report com o df carregado pelo usuário.
-    st_profile_report(pr)
+        # Printando DataFrame na tela
+        st.write(df)
+        st.write('---')
+        st.header('**Análise do Arquivo Inserido**')
+
+        # Printando profile report com o df carregado pelo usuário.
+        st_profile_report(pr)
 
 # 2. Se o usuário não carregar um arquivo, então vai utilizar um template:
 else:
-    st.info('Esperando um arquivo xlsx ou csv ser inserido.')
+    
+    # Adiciona a funcionalidade de selecionar bases de dados armazenadas no MongoDB
+    st.subheader('2. Seleção de Base de Dados Armazenada')
+
+
+    # Listar as coleções disponíveis no MongoDB
+    colecoes = db.list_collection_names()
+
+    # Verifica se há coleções disponíveis
+    if colecoes:
+        colecao_selecionada = st.selectbox("Selecione uma base de dados:", colecoes)
+
+        if colecao_selecionada and st.button("Confirmar e Analisar"):
+            df = carregar_dados_mongodb(colecao_selecionada)
+            
+            st.success(f"Base de dados '{colecao_selecionada}' carregada com sucesso!")
+
+            # Gerando profile report com o df selecionado pelo usuário.
+            pr = ProfileReport(df, explorative=True)
+            st.subheader('3. Visualização do Dataframe')
+
+            # Printando DataFrame na tela
+            st.write(df)
+            st.write('---')
+            st.header('**Análise da Base de Dados Selecionada**')
+
+            # Printando profile report com o df carregado pelo usuário.
+            st_profile_report(pr)
+    else:
+        st.warning("Nenhuma base de dados armazenada encontrada.")
+
     if st.button('Clique para utilizar um exemplo'):
         # Armazena em cache o report gerado
         @st.cache_data
@@ -70,7 +115,6 @@ else:
         # Gera um dataframe de exemplo
         def load_data():
             a = pd.DataFrame(
-
                 # Cria um dataframe de 10 linhas e 5 colunas com números reais aleatórios
                 np.random.rand(100, 5),
                 columns=['a', 'b', 'c', 'd', 'e']
