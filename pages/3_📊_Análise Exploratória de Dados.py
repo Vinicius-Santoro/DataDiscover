@@ -27,7 +27,7 @@ def carregar_dados_mongodb(colecao_nome):
 st.title("Análise Exploratória de Dados")
 
 # Recebe o arquivo excel ou csv do usuário
-st.subheader('1. Coleta de Dados')
+st.subheader('1. Coleta de dados via upload')
 uploaded_file = st.file_uploader("Insira seu arquivo xlsx ou csv", type=["csv", "xlsx"])
 
 # Verifica se o arquivo carregado é um CSV
@@ -62,8 +62,6 @@ if uploaded_file is not None:
     # Botão de confirmação
     if st.button("Confirmar e Analisar"):
         # Gerando profile report com o df carregado pelo usuário.
-
-        st.info('Esperando um arquivo xlsx ou csv ser inserido.')
         pr = ProfileReport(df, explorative=True)
         st.subheader('2. Visualização do Dataframe')
 
@@ -79,7 +77,7 @@ if uploaded_file is not None:
 else:
     
     # Adiciona a funcionalidade de selecionar bases de dados armazenadas no MongoDB
-    st.subheader('2. Seleção de Base de Dados Armazenada')
+    st.subheader('2. Seleção das bases do banco de dados')
 
 
     # Listar as coleções disponíveis no MongoDB
@@ -108,6 +106,7 @@ else:
     else:
         st.warning("Nenhuma base de dados armazenada encontrada.")
 
+    st.subheader('3. Dados de exemplo')
     if st.button('Clique para utilizar um exemplo'):
         # Armazena em cache o report gerado
         @st.cache_data
