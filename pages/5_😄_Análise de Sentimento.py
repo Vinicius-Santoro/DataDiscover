@@ -3,6 +3,19 @@ import pandas as pd
 from transformers import pipeline
 import tempfile
 
+# Configura título e ícone da página. Sidebar inicia expandida
+st.set_page_config(
+    page_title="Análise de Sentimento",
+    page_icon="😄",
+    layout="wide"
+)
+
+# Adiciona título da página
+st.title("Análise de Sentimento")
+
+st.write("A análise de sentimento permite que você insira uma base de dados, escolha determinada coluna e classifique cada um dos registros com um sentimento.")
+
+
 # Função para carregar o modelo de análise de sentimento
 @st.cache_resource
 def load_sentiment_model():
@@ -29,9 +42,6 @@ def converter_df_para_bytes(df):
 
 # Carregar o modelo de sentimento
 sentiment_model = load_sentiment_model()
-
-# Configuração da aplicação
-st.title('Classificação de Sentimento em Colunas de Arquivos')
 
 # Upload do arquivo
 uploaded_file = st.file_uploader("Envie seu arquivo CSV ou Excel", type=["csv", "xlsx"])
