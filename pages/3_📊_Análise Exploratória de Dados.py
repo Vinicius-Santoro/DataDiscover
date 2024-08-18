@@ -26,8 +26,11 @@ def carregar_dados_mongodb(colecao_nome):
 # Adiciona título da página
 st.title("Análise Exploratória de Dados")
 
+st.write("A ferramenta de análise exploratória de dados permite ter uma análise detalhada do dataframe. A ferramenta revela padrões, tendências e insights ocultos, permitindo uma compreensão mais profunda da estrutura dos dados. Com base nessa análise, você pode tomar decisões informadas sobre limpeza, transformação e visualização dos dados.")
+
 # Recebe o arquivo excel ou csv do usuário
-st.subheader('1. Coleta de dados via upload')
+st.subheader('1. Coleta de Dados')
+st.markdown("##### 1.1 Coleta de dados via upload")
 uploaded_file = st.file_uploader("Insira seu arquivo xlsx ou csv", type=["csv", "xlsx"])
 
 # Verifica se o arquivo carregado é um CSV
@@ -77,8 +80,7 @@ if uploaded_file is not None:
 else:
     
     # Adiciona a funcionalidade de selecionar bases de dados armazenadas no MongoDB
-    st.subheader('2. Seleção das bases do banco de dados')
-
+    st.markdown("##### 1.2 Seleção das bases do banco de dados")
 
     # Listar as coleções disponíveis no MongoDB
     colecoes = db.list_collection_names()
@@ -106,7 +108,7 @@ else:
     else:
         st.warning("Nenhuma base de dados armazenada encontrada.")
 
-    st.subheader('3. Dados de exemplo')
+    st.markdown("##### 1.3 Dados de exemplo")
     if st.button('Clique para utilizar um exemplo'):
         # Armazena em cache o report gerado
         @st.cache_data
