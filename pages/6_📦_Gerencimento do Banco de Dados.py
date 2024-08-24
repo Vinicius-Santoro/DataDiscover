@@ -28,7 +28,7 @@ def excluir_todos_dados_mongodb(colecao_nome):
 # Adiciona título da página
 st.title("Gerenciamento de Dados MongoDB")
 
-st.write("Esta ferramenta permite visualizar e excluir todos os dados de uma coleção específica do MongoDB.")
+st.write("Esta ferramenta permite visualizar, excluir e baixar todos os dados de uma coleção específica do MongoDB.")
 
 # Seleção da coleção
 colecoes = db.list_collection_names()
@@ -44,10 +44,21 @@ if colecao_selecionada:
     df = carregar_dados_mongodb(colecao_selecionada)
     st.write(df.head(10))
 
+    st.subheader(f"Baixar os Dados da Coleção '{colecao_selecionada}'")
+    # Botão para baixar os dados como CSV
+    if not df.empty:
+        csv = df.to_csv(index=False)
+        st.download_button(
+            label="Baixar dados como CSV",
+            data=csv,
+            file_name=f"{colecao_selecionada}.csv",
+            mime="text/csv"
+        )
+
     st.subheader(f"Excluir Dados da Coleção '{colecao_selecionada}'")
 
     # Botão para excluir todos os dados
-    if st.button("Excluir Todos os Dados"):
+    if st.button("Excluir todos os dados"):
         try:
             excluidos = excluir_todos_dados_mongodb(colecao_selecionada)
             st.success(f"{excluidos} documentos foram excluídos com sucesso!")
