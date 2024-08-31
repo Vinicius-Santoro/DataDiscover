@@ -13,8 +13,13 @@ st.set_page_config(
 # Adiciona título da página
 st.title("Análise de Sentimento")
 
-st.write("A análise de sentimento permite que você insira uma base de dados, escolha determinada coluna e classifique cada um dos registros com um sentimento.")
-
+# Texto de descrição do projeto.
+st.markdown("<p style='text-align: justify;'>\
+        Nesta tela, você pode carregar uma base\
+        de dados e selecionar uma coluna para realizar\
+        a classificação de sentimentos (positivo, negativo ou neutro),\
+        obtendo insights sobre a opinião expressa nos textos.\
+</p>", unsafe_allow_html=True)
 
 # Função para carregar o modelo de análise de sentimento
 @st.cache_resource

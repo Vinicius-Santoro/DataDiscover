@@ -157,8 +157,10 @@ st.write('# Motor de Busca <span style="color: #ff6200"></span>', unsafe_allow_h
 
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
-            O motor de busca possibilita você ter o retorno dos principais artigos publicados no Google Schoolar. \
-            Além disso, são apresentados dois indicadores para você ter uma visão analítica de como estão as distribuições.\
+        O motor de busca permite que você pesquise artigos acadêmicos\
+        no Google Scholar, oferecendo também uma visão analítica dos\
+        principais autores e sites relevantes. É ideal para quem precisa\
+        explorar rapidamente as principais publicações em um campo específico\
 </p>", unsafe_allow_html=True)
 
 

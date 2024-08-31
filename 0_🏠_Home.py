@@ -63,7 +63,7 @@ with st.expander("📃 Relatório de Performance de Modelo"):
         facilitando a escolha do modelo mais eficaz.\
     </p>", unsafe_allow_html=True)
 
-# Texto de explicação do motor de busca, com expander.
+# Texto de explicação tela de análise de sentimento, com expander.
 with st.expander("😄 Análise de Sentimento"):
     st.markdown("<p style='text-align: justify;'>\
         Nesta tela, você pode carregar uma base\
@@ -72,7 +72,7 @@ with st.expander("😄 Análise de Sentimento"):
         obtendo insights sobre a opinião expressa nos textos.\
     </p>", unsafe_allow_html=True)
 
-# Texto de explicação do motor de busca, com expander.
+# Texto de explicação da tela de banco de dados com expander.
 with st.expander("📦 Gerencimento do Banco de Dados"):
     st.markdown("<p style='text-align: justify;'>\
         Esta tela permite visualizar e gerencie todas\

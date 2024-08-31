@@ -28,8 +28,10 @@ st.write('# Extração de Dados <span style="color: #ff6200"></span>', unsafe_al
 
 # Texto de descrição do projeto
 st.markdown("<p style='text-align: justify;'>\
-            A extração de dados permite obter bases de dados diretamente do Kaggle, \
-            proporcionando dataframes prontos para testes com as demais ferramentas do DataDiscover.\
+        Nesta tela, você pode pesquisar e baixar conjuntos de dados\
+        diretamente do Kaggle em formatos CSV e XLSX. A interface facilita\
+        o acesso rápido a uma variedade de dados para análise ou treinamento\
+        de modelos.\
 </p>", unsafe_allow_html=True)
 
 # Entrada de texto para o usuário inserir o termo de busca

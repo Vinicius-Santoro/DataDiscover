@@ -28,7 +28,13 @@ def excluir_todos_dados_mongodb(colecao_nome):
 # Adiciona título da página
 st.title("Gerenciamento de Dados MongoDB")
 
-st.write("Esta ferramenta permite visualizar, excluir e baixar todos os dados de uma coleção específica do MongoDB.")
+# Texto de descrição do projeto.
+st.markdown("<p style='text-align: justify;'>\
+        Esta tela permite visualizar e gerencie todas\
+        as bases de dados armazenadas em um banco de dados não\
+        relacional, incluindo a opção de excluir conjuntos de\
+        dados desnecessários.\
+</p>", unsafe_allow_html=True)
 
 # Seleção da coleção
 colecoes = db.list_collection_names()

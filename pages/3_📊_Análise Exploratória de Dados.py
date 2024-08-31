@@ -26,7 +26,13 @@ def carregar_dados_mongodb(colecao_nome):
 # Adiciona título da página
 st.title("Análise Exploratória de Dados")
 
-st.write("A ferramenta de análise exploratória de dados permite ter uma análise detalhada do dataframe. A ferramenta revela padrões, tendências e insights ocultos, permitindo uma compreensão mais profunda da estrutura dos dados. Com base nessa análise, você pode tomar decisões informadas sobre limpeza, transformação e visualização dos dados.")
+# Texto de descrição do projeto
+st.markdown("<p style='text-align: justify;'>\
+        Esta tela oferece uma análise geral e estatística\
+        detalhada dos dados em um conjunto selecionado, permitindo ao usuário\
+        entender melhor as características e tendências antes de qualquer\
+        modelagem.\
+</p>", unsafe_allow_html=True)
 
 # Recebe o arquivo excel ou csv do usuário
 st.subheader('1. Coleta de Dados')
