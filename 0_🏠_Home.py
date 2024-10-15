@@ -15,7 +15,7 @@ st.write('# Bem vindo ao <span style="color: #ff6200">DataDiscover</span>',
 
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
-            O DataDiscover é um site que centraliza cinco ferramentas\
+            O DataDiscover é um site que centraliza seis ferramentas\
             projetadas especificamente para estudantes e entusiastas de\
             ciência de dados. Nosso objetivo é simplificar e aprimorar a\
             experiência de aprendizado e prática nessa área.\
