@@ -200,7 +200,7 @@ col1, col2 = st.columns([3,1])
 with col1:
   text_input = st.text_input("Pesquisar no Google Scholar", placeholder="O que você está procurando?", disabled=False)
 with col2:
-  total_to_scrap = st.slider("Quantas páginas para realizar o scrap?", min_value=1, max_value=4, step=1, value=1)
+  total_to_scrap = st.slider("Nº de páginas para scraping?", min_value=1, max_value=4, step=1, value=1)
 
 st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
 # create scholar url
