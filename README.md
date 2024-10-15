@@ -1,4 +1,4 @@
-# 📅 **Projeto Integrador IV** – DataDiscover, uma ferramenta para potencializar o aprendizado de estudantes de ciência de dados.
+## 📅 **Projeto Integrador IV** – DataDiscover, uma ferramenta para potencializar o aprendizado de estudantes de ciência de dados.
 
 ![Alt Text](./images/data_discover_home.png)
 
