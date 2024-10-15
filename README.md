@@ -35,8 +35,8 @@ Esta tela permite visualizar e gerencie todas as bases de dados armazenadas em u
 ## 📂 **Estrutura do Projeto**
 
 ```bash
-├── /images            # imagens do projeto
-├── /pages
+├── /images            		# Imagens do projeto
+├── /pages					# Telas da aplicação
 │   ├── 1_🔎_Motor de Busca.py  
 │   ├── 2_🎲_Extração de Dados.py
 │   ├── 3_📊_Análise Exploratória de Dados.py
@@ -45,8 +45,9 @@ Esta tela permite visualizar e gerencie todas as bases de dados armazenadas em u
 │   ├── 6_📦_Gerencimento do Banco de Dados.py
 │   ├── 7_🖥️_Baixe o Código Fonte.py
 │   ├── 8_📞_Fale Conosco.py
-├── .gitignore           # Ignora os arquivos para o github
-├── 0_🏠_Home.py        # Homepage da aplicação e chamada para as telas
-├── requiremets.txt      # Dependências do projeto
-└── README.md            # Project documentation
+├── .gitignore				# Ignora os arquivos para o github
+├── 0_🏠_Home.py			# Homepage da aplicação e chamada para as telas
+├── corrige-requirements.md	# Documentação de correção de possíveis erros
+├── requiremets.txt			# Dependências do projeto
+└── README.md				# Documentação geral do projeto
 ```
