@@ -23,8 +23,8 @@ O motor de busca permite que você pesquise artigos acadêmicos no Google Schola
 
 <details>
 <summary>Análise gráfica da tela</summary>
-  
-https://github.com/user-attachments/assets/c6e132e3-09df-4b6c-aa8f-13629b579cab
+
+https://github.com/user-attachments/assets/0ce2c26d-20c6-48b8-9b90-72a28c474be8
 
 </details>
 
