@@ -28,7 +28,7 @@ profile_image_file_path3 = r"images/victor.jpg"
 img3 = get_image_as_base64(profile_image_file_path3)
 current_role3 = "Victor da Silva Araujo"
 
-
+st.title("Fale Conosco")
 
 st.write("""
 <div style="display: flex; justify-content: center;">

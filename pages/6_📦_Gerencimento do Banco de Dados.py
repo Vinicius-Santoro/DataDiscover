@@ -30,7 +30,7 @@ st.title("Gerenciamento de Dados MongoDB")
 
 # Texto de descrição do projeto.
 st.markdown("<p style='text-align: justify;'>\
-        Esta tela permite visualizar e gerencie todas\
+        Esta tela permite visualizar e gerenciar todas\
         as bases de dados armazenadas em um banco de dados não\
         relacional, incluindo a opção de excluir conjuntos de\
         dados desnecessários.\
